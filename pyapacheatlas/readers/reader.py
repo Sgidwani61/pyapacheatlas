@@ -275,7 +275,7 @@ class Reader(LineageMixIn):
         # Extract the
         # Extract any additional attributes
         headers_that_arent_attribs = [
-            "typeName", "name", "qualifiedName", "classifications", "owners", "experts"]
+            "typeName", "name", "qualifiedName", "type", "classifications", "owners", "experts"]
         existing_entities = OrderedDict()
 
         # TODO: Remove this once deprecation is removed
@@ -298,6 +298,7 @@ class Reader(LineageMixIn):
                 name=row["name"],
                 typeName=row["typeName"],
                 qualified_name=row["qualifiedName"],
+                type=row["type"],
                 guid=self.guidTracker.get_guid(),
                 attributes=_extracted["attributes"],
                 relationshipAttributes=_extracted["relationshipAttributes"],
